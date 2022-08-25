@@ -16,7 +16,7 @@ use App\Http\Controllers\ProductController;
 */
 
   
-Route::resource('products', ProductController::class);
+
 Route::get('/', function () {
     return Inertia::render('Welcome', [
         'canLogin' => Route::has('login'),
