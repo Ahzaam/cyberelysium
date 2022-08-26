@@ -1,6 +1,6 @@
 <script setup>
 import { Head, Link } from '@inertiajs/inertia-vue3';
-import Products from '../Components/Products.vue';
+import Products from '@/Components/Products.vue';
 
 defineProps({
     canLogin: Boolean,
