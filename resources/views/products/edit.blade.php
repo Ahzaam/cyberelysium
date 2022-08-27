@@ -36,10 +36,11 @@
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
-                    <strong>Detail:</strong>
-                    <textarea class="form-control" style="height:150px" name="detail" placeholder="Detail">{{ $product->detail }}</textarea>
+                    <strong>Price:</strong>
+                    <input class="form-control"  name="price" placeholder="Detail" value="{{ $product->price }}">
                 </div>
             </div>
+            
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Image:</strong>
@@ -47,6 +48,34 @@
                     <img src="/image/{{ $product->image }}" width="300px">
                 </div>
             </div>
+
+            <div class="form-check form-switch my-3">
+            <input class="form-check-input" name='status' id='status' type="checkbox"  {{ $product->status?'checked':'' }} id="flexSwitchCheckDefault" >
+            <label class="form-check-label" for="flexSwitchCheckDefault">Status</label>
+            <label id='statdis' class="text-success" for="flexSwitchCheckDefault">Active</label>
+        </div>
+        <script>
+            const stat = document.getElementById('status')
+            const statdis = document.getElementById('statdis')
+            change()
+            stat.addEventListener('change', () => {
+                change()
+               
+            })
+
+            function change() {
+                if (!stat.checked) {
+                    statdis.classList.remove('text-success')
+                    statdis.classList.add('text-danger')
+                    statdis.innerHTML = 'Deactive'
+                } else {
+                    statdis.classList.remove('text-danger')
+                    statdis.classList.add('text-success')
+                    statdis.innerHTML = 'Active'
+                }
+            }
+        </script>
+            
             <div class="col-xs-12 col-sm-12 col-md-12 text-center">
               <button type="submit" class="btn btn-primary">Submit</button>
             </div>

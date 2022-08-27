@@ -2,10 +2,6 @@
   <div>
 
 
-
-    <h1>Laravel Api with Nuxt 3 Fetch Api Data</h1>
-
-
     <div class="row row-cols-1 row-cols-md-4 g-4 mx-2">
       <div v-for="product in products" :key="product.id" class="col">
         <div class="card">

@@ -3,9 +3,15 @@
 @section('content')
     <div class="row">
         <div class="col-lg-12 margin-tb">
-            <div class="pull-left">
-                <h2>Dashboard</h2><br>
+        <div class="pull-left mx-3 px-4">
+                
+                <a href="/" ><h2> / Home &nbsp;</h2><br></a>
             </div>
+            <div class="pull-left">
+                <a href="/dashboard" ><h2> /Dashboard </h2><br></a>
+               
+            </div>
+            
             <div class="pull-right">
                 <a class="btn btn-success" href="{{ route('products.create') }}"> Create New Product</a>
             </div>
@@ -23,7 +29,8 @@
             <th>No</th>
             <th>Image</th>
             <th>Name</th>
-            <th>Details</th>
+            <th>Price</th>
+            <th>Status</th>
             <th width="280px">Action</th>
         </tr>
         @foreach ($products as $product)
@@ -31,7 +38,9 @@
             <td>{{ ++$i }}</td>
             <td><img src="/image/{{ $product->image }}" width="100px"></td>
             <td>{{ $product->name }}</td>
-            <td>{{ $product->detail }}</td>
+            <td>{{ $product->price }} LKR</td>
+            <td>{{ $product->status == 'on'?'Active':'Deactive'}}</td>
+            <!--  -->
             <td>
                 <form action="{{ route('products.destroy',$product->id) }}" method="POST">
      

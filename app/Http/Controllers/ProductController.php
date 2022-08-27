@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
   
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
   
 class ProductController extends Controller
 {
@@ -93,13 +94,19 @@ class ProductController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            
+            'status' => 'nullable',
             'price' => 'required'
 
         ]);
-  
+      
+        
+        $status  =  $request->status == 'on'?'on':NULL;//; $request->status == 'on'?'Active':'Deactive'
+        $request->request->add(['status' => $status]); //add request
+
         $input = $request->all();
-  
+       
+       
+        $input = $request->all();
         if ($image = $request->file('image')) {
             $destinationPath = 'image/';
             $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
@@ -108,7 +115,7 @@ class ProductController extends Controller
         }else{
             unset($input['image']);
         }
-          
+        
         $product->update($input);
     
         return redirect()->route('products.index')
