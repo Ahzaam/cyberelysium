@@ -45,6 +45,7 @@ const logout = () => {
                                 <Link :href="route('dashboard')">
                                     <JetApplicationMark class="block h-9 w-auto" />
                                 </Link>
+                                
                             </div>
 
                             <!-- Navigation Links -->
@@ -52,6 +53,13 @@ const logout = () => {
                                 <JetNavLink :href="route('dashboard')" :active="route().current('dashboard')">
                                     Dashboard
                                 </JetNavLink>
+                              
+                            </div>
+                            <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                                <JetNavLink href="/" >
+                                    Home
+                                </JetNavLink>
+                               
                             </div>
                         </div>
 
